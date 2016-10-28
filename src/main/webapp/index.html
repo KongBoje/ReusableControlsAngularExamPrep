@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-mocks.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="personController as PCtrl">
+    <div class="container">
+        <div class="form-group">
+            <p>Test your filter, directive and factory here</p>
+            <div ng-app="myApp">
+                <ul>
+                    <li ng-repeat="name in PCtrl.names">
+                        {{name.name| nameFilter}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<person-directive header="Welcome back."></person-directive>
+<div class="container">
+    <div class="form-group">
+        <div>Title case: {{PCtrl.titleCase("my example service")}}</div>
+        <div>Camel case: {{PCtrl.camelCase("my example service")}}</div>
+        <div>Dash case: {{PCtrl.dashCase("my example service")}}</div>
+    </div>
+</div>
+</body>
+</html>
